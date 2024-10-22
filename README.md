@@ -72,25 +72,12 @@ translation_dict = {
     "发动机号": "Engine Number"
 }
 
+
 #File path
 file_path = "/content/760k-Car-Owners-Nationwide-China-csv-2020.csv"
 
-#Read the CSV file
-df = pd.read_csv(file_path)
 
-#Rename the columns using the translation dictionary
-df.rename(columns=translation_dict, inplace=True, errors="raise")
-#errors="raise" will cause an error if a key in translation_dict is not found
-
-#Save the modified DataFrame to a new CSV file named 'CleanNationwide.csv'
-output_file_path = "/content/CleanNationwide.csv"
-df.to_csv(output_file_path, index=False)
-
-print(f"Translated CSV saved to {output_file_path}")
-
-#Display the first 5 rows of the translated DataFrame
-print("\nFirst 5 rows of the updated CSV:")
-print(df.head())
+![ScrapeScrape](1.png)
 
 
 #prompt: # prompt: # prompt: using the file CleanNationwide.csv "  apply the code columns_to_drop = [
@@ -139,29 +126,7 @@ df.to_csv('/content/CleanNationwide.csv', index=False)
 print(df.head())
 
 
-#prompt: extract and remove duplicates from CleanNationwide.csv,
-#extract the duplicates to a new .csv called garbage1 and update the CleanNationwide.csv to reflect
-#print first 5 rows of CleanNationwide
-
-import pandas as pd
-
-#Read the CSV file
-df = pd.read_csv('/content/CleanNationwide.csv')
-
-#Find and extract duplicate rows based on all columns
-duplicates = df[df.duplicated(keep=False)]
-
-#Remove duplicate rows from the original DataFrame, keeping the first occurrence
-df_no_duplicates = df.drop_duplicates(keep='first')
-
-#Save the duplicates to a new CSV file
-duplicates.to_csv('/content/garbage1.csv', index=False)
-
-#Save the updated DataFrame (without duplicates) back to the original file
-df_no_duplicates.to_csv('/content/CleanNationwide.csv', index=False)
-
-#Display the first 5 rows of the updated DataFrame
-print(df_no_duplicates.head())
+![ScrapeScrape](2.png)
 
 
 #prompt: # prompt: using the file CleanNationwide.csv" ensure the columns are as follow
@@ -179,45 +144,10 @@ import re
 #Load the updated CSV file
 df = pd.read_csv('/content/CleanNationwide.csv')
 
-#1. Data Type Conversion and Validation
-#Postal Code: Convert to float, handle errors gracefully
-df['Postal Code'] = pd.to_numeric(df['Postal Code'], errors='coerce')
+![ScrapeScrape](3.png)
 
-#Date of Birth: Convert to datetime, handle invalid formats
-try:
-    df['Date of Birth'] = pd.to_datetime(df['Date of Birth'], format='%Y-%m-%d', errors='coerce')
-except ValueError as e:
-    print(f"Error converting 'Date of Birth': {e}")
 
-#Mobile Phone: Convert to integer, handle errors gracefully
-df['Mobile Phone'] = pd.to_numeric(df['Mobile Phone'], errors='coerce').astype('Int64')  # Use 'Int64' for nullable integers
-
-#VIN: Ensure it's a string
-df['Vehicle Identification Number (VIN)'] = df['Vehicle Identification Number (VIN)'].astype(str)
-
-#2. Email Validation and Extraction to garbage2.csv
-def is_valid_email(email):
-    # Regular expression for basic email validation
-    pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-    # Check if email is a string and not null before applying regex
-    if isinstance(email, str) and email:  # Check if email is a non-empty string
-        return bool(re.fullmatch(pattern, email))
-    else:
-        return False  # Return False for non-string or empty values
-
-#Identify invalid emails
-invalid_emails_df = df[~df['Email'].apply(is_valid_email)]
-
-#Extract invalid emails to 'garbage2.csv'
-invalid_emails_df.to_csv('/content/garbage2.csv', index=False)
-
-#Remove rows with invalid emails from the main dataframe
-df = df[df['Email'].apply(is_valid_email)]
-
-#3. Save the updated DataFrame
-df.to_csv('/content/CleanNationwide.csv', index=False)
-
-print(df.head())
+![ScrapeScrape](4.png)
 
 
 import pandas as pd
@@ -234,12 +164,7 @@ print(df.head(5))
 #prompt: print 5 rows from CleanNationwide and print 5 rows of garbageNationwide
 #Assuming CleanNationwide.csv and garbageNationwide.csv are already created
 
-import pandas as pd
-
-#Merge garbage1.csv and garbage2.csv
-try:
-    garbage1_df = pd.read_csv('/content/garbage1.csv')
-    garbage2_df = pd.read_csv('/content/garbage2.csv')
+![ScrapeScrape](5.png)
 
     # Before concatenation, remove columns with all NA values
     garbage1_df = garbage1_df.dropna(axis=1, how='all')
@@ -252,3 +177,6 @@ except FileNotFoundError:
     print("One or both of garbage1.csv or garbage2.csv not found.")
 except Exception as e:
     print(f"An error occurred during merging: {e}")
+
+
+
