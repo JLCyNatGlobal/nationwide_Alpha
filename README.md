@@ -90,7 +90,9 @@ file_path = "/content/760k-Car-Owners-Nationwide-China-csv-2020.csv"
 #"车型": "Vehicle Model",
 #"配置": "Configuration",
 #"颜色": "Color",
-#"发动机号": "Engine Number".'Unnamed: 21'
+#"发动机号": "Engine Number".
+#'Unnamed: 21'
+
 #extract the columns and place in a new csv dropColumns.csv and update "/content/CleanNationwide.csv print first 5 rows of CleanNationwide.csv with dropped columns
 
 import pandas as pd
