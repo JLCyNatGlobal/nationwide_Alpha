@@ -153,30 +153,10 @@ df = pd.read_csv('/content/CleanNationwide.csv')
 import pandas as pd
 import numpy as np
 
-#Read the updated CSV file, importing 'Mobile Phone' as string
-df = pd.read_csv('/content/CleanNationwide.csv', dtype={'Mobile Phone': str})
-
-#Print the first 5 rows of CleanNationwide.csv
-print(df.head(5))
-
-
-#prompt: # merge garbage1 and 2 into a new .csv called garbageNationwide.csv
-#prompt: print 5 rows from CleanNationwide and print 5 rows of garbageNationwide
-#Assuming CleanNationwide.csv and garbageNationwide.csv are already created
-
 ![ScrapeScrape](5.png)
 
-    # Before concatenation, remove columns with all NA values
-    garbage1_df = garbage1_df.dropna(axis=1, how='all')
-    garbage2_df = garbage2_df.dropna(axis=1, how='all')
+![ScrapeScrape](6.png)
 
-    garbageNationwide_df = pd.concat([garbage1_df, garbage2_df], ignore_index=True)
-    garbageNationwide_df.to_csv('/content/garbageNationwide.csv', index=False)
-    print("Successfully merged garbage1.csv and garbage2.csv into garbageNationwide.csv")
-except FileNotFoundError:
-    print("One or both of garbage1.csv or garbage2.csv not found.")
-except Exception as e:
-    print(f"An error occurred during merging: {e}")
 
 
 
