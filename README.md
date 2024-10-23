@@ -146,12 +146,7 @@ df = pd.read_csv('/content/CleanNationwide.csv')
 
 ![ScrapeScrape](3.png)
 
-
 ![ScrapeScrape](4.png)
-
-
-import pandas as pd
-import numpy as np
 
 ![ScrapeScrape](5.png)
 
