@@ -1,6 +1,6 @@
 # nationwide_Alpha
 
-## ReadMe
+# ReadMe
 
 ![ScrapeScrape](alpha.png)
 
@@ -80,7 +80,7 @@ file_path = "/content/760k-Car-Owners-Nationwide-China-csv-2020.csv"
 ![ScrapeScrape](1.png)
 
 
-#prompt: # prompt: # prompt: using the file CleanNationwide.csv "  apply the code columns_to_drop = [
+#prompt: using the file CleanNationwide.csv "  apply the code columns_to_drop = [
 #"行业": "Industry",
 #"月薪": "Monthly Salary",
 #"婚姻": "Marital Status",
@@ -129,7 +129,7 @@ print(df.head())
 ![ScrapeScrape](2.png)
 
 
-#prompt: # prompt: using the file CleanNationwide.csv" ensure the columns are as follow
+#prompt: using the file CleanNationwide.csv" ensure the columns are as follow
 #Postal Code float
 #Date of Birth yyyy-mm-dd
 #Mobile Phone Int
