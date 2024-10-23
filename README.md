@@ -154,4 +154,15 @@ df = pd.read_csv('/content/CleanNationwide.csv')
 
 
 
+# Preview Snippet of Datasset
+Dataset Preview
 
+Here’s a glimpse of the dataset after the cleaning process. This preview showcases the expected structure and quality of the data, highlighting the improvements made:
+
+Uniformity: Data entries are now consistent and standardized.
+Completeness: All missing values have been addressed.
+Accuracy: Outliers and errors have been corrected.
+Readiness: The dataset is now primed for detailed analysis
+
+
+![ScrapeScrape](DataPreview.png)
