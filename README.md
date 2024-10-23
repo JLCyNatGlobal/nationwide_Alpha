@@ -154,7 +154,7 @@ df = pd.read_csv('/content/CleanNationwide.csv')
 
 
 
-# Preview Snippet of Datasset
+# Preview Snippet of Dataset
 Dataset Preview
 
 Here’s a glimpse of the dataset after the cleaning process. This preview showcases the expected structure and quality of the data, highlighting the improvements made:
