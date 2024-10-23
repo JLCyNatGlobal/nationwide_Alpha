@@ -132,12 +132,19 @@ print(df.head())
 
 
 #prompt: using the file CleanNationwide.csv" ensure the columns are as follow
+
 #Postal Code float
+
 #Date of Birth yyyy-mm-dd
+
 #Mobile Phone Int
+
 #VIN String
+
 #check Email for invalid email adresses and extract entire column to garbage2.csv
+
 #keep all other data as is
+
 #update the CleanNationwide.csv file
 
 import pandas as pd
